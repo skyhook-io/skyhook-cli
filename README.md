@@ -8,7 +8,7 @@ Command-line tool for managing Kubernetes services with Skyhook.
 
 ```bash
 brew tap skyhook-io/skyhook-cli
-brew install skyhook-io/skyhook-cli/skyhook
+brew install skyhook
 ```
 
 ### Linux/macOS (Direct Download)
@@ -16,8 +16,18 @@ brew install skyhook-io/skyhook-cli/skyhook
 Download the latest release from the [releases page](https://github.com/skyhook-io/skyhook-cli/releases).
 
 ```bash
-# Example for macOS ARM64
-curl -L https://github.com/skyhook-io/skyhook-cli/releases/latest/download/skyhook_cli_Darwin_arm64 -o skyhook
+# macOS Universal (ARM64 + Intel)
+curl -L https://github.com/skyhook-io/skyhook-cli/releases/latest/download/skyhook_cli_Darwin_all -o skyhook
+chmod +x skyhook
+sudo mv skyhook /usr/local/bin/
+
+# Linux x86_64
+curl -L https://github.com/skyhook-io/skyhook-cli/releases/latest/download/skyhook_cli_Linux_x86_64 -o skyhook
+chmod +x skyhook
+sudo mv skyhook /usr/local/bin/
+
+# Linux ARM64
+curl -L https://github.com/skyhook-io/skyhook-cli/releases/latest/download/skyhook_cli_Linux_arm64 -o skyhook
 chmod +x skyhook
 sudo mv skyhook /usr/local/bin/
 ```
