@@ -244,7 +244,7 @@ main() {
         ARCHIVE_EXT="tar.gz"
     fi
     ARCHIVE_NAME="skyhook_${OS_NAME}_${ARCH_NAME}.${ARCHIVE_EXT}"
-    DOWNLOAD_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v${VERSION}/${ARCHIVE_NAME}"
+    DOWNLOAD_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/${VERSION}/${ARCHIVE_NAME}"
 
     # Create temp directory
     TMP_DIR="$(mktemp -d)"
