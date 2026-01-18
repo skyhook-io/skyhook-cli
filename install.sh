@@ -221,13 +221,29 @@ main() {
     INSTALL_DIR="$(get_install_dir)"
 
     # Build download URL
-    # Format: skyhook_Darwin_arm64.tar.gz or skyhook_Windows_x86_64.zip
+    # Format: skyhook_darwin_all.tar.gz, skyhook_linux_amd64.tar.gz, skyhook_windows_amd64.zip
+
+    # Map architecture names
+    case "$ARCH" in
+        x86_64) ARCH_NAME="amd64" ;;
+        arm64)  ARCH_NAME="arm64" ;;
+        *)      ARCH_NAME="$ARCH" ;;
+    esac
+
+    # Map OS names (lowercase for goreleaser)
+    case "$OS" in
+        Darwin) OS_NAME="darwin"; ARCH_NAME="all" ;;  # Universal binary
+        Linux)  OS_NAME="linux" ;;
+        Windows) OS_NAME="windows" ;;
+        *)      OS_NAME="$(echo "$OS" | tr '[:upper:]' '[:lower:]')" ;;
+    esac
+
     if [ "$OS" = "Windows" ]; then
         ARCHIVE_EXT="zip"
     else
         ARCHIVE_EXT="tar.gz"
     fi
-    ARCHIVE_NAME="skyhook_${OS}_${ARCH}.${ARCHIVE_EXT}"
+    ARCHIVE_NAME="skyhook_${OS_NAME}_${ARCH_NAME}.${ARCHIVE_EXT}"
     DOWNLOAD_URL="https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v${VERSION}/${ARCHIVE_NAME}"
 
     # Create temp directory
