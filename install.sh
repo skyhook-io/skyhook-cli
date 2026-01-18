@@ -1,6 +1,6 @@
 #!/bin/sh
 # Skyhook CLI Installer
-# Usage: curl -fsSL https://get.skyhook.io | sh
+# Usage: curl -fsSL https://get.skyhook.io/install.sh | sh
 #
 # Environment variables:
 #   SKYHOOK_INSTALL_DIR - Override installation directory
